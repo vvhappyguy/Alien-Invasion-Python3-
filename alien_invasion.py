@@ -14,6 +14,6 @@ def run_game():
     pygame.display.set_caption("Alien Invasion v0")
     ship = Ship(screen)
     while True:
-        gf.check_events()
+        gf.check_events(ship)
         gf.update_screen(ai_settings,screen,ship)
 run_game()
