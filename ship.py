@@ -10,7 +10,7 @@ class Ship():
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
-        """New ship creats on bottom"""
+        """New ship creats in center"""
         self.rect.centerx = self.screen_rect.centerx
         self.rect.centery = self.screen_rect.centery
 
@@ -22,14 +22,14 @@ class Ship():
 
     def update(self):
         """Updating position of ship"""
-        if self.moving_right:
-            self.rect.centerx += 1
-        if self.moving_left:
-            self.rect.centerx -= 1
-        if self.moving_up:
-            self.rect.centery -= 1
-        if self.moving_down:
-            self.rect.centery += 1
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.rect.centerx += 2
+        if self.moving_left and self.rect.left > 0:
+            self.rect.centerx -= 2
+        if self.moving_up and self.rect.centery > 0:
+            self.rect.centery -= 2
+        if self.moving_down and self.rect.centery < 800:
+            self.rect.centery += 2
 
     def blitme(self):
         """Blitting ship"""
